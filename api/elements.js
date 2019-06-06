@@ -11,7 +11,7 @@ e.h1 = function(x) {
 	return g
 }
 
-e.div = function(x) {
+e.div = function(...x) {
 	let g = document.createElement("div")
 	for(let e of x) {
 		g.appendChild(e)
