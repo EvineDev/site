@@ -2,6 +2,7 @@
 
 import e from "./elements.js"
 import render from "./render.js"
+import { ChrateFunction, ChrateNodeArg, ChrateNode } from "./chrate.js"
 
 //let request = fetch("api/eple.txt")
 //let text = request.then(x => x.text())
@@ -34,13 +35,13 @@ import render from "./render.js"
 //	"error": error
 //})
 
-function chrate(f, ...nodes) {
-	return {
+function chrate<T>(f: ChrateFunction<T>, ...nodes: ChrateNodeArg<T>) {
+	let result: ChrateNode<T> = {
 		code: f,
 		nodes: nodes
 	}
+	return result
 }
-
 
 let index = chrate(e.div,
 	chrate(e.h1, "bah"),
