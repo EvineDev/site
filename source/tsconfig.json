@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"outDir": "../api",
+		"target": "ES6",
+		"incremental": false,
+		"declaration": true
+	},
+	"include": [
+		"./*"
+	],
+	"exclude": [
+	]
+}

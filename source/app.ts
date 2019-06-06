@@ -41,6 +41,7 @@ function chrate(f, ...nodes) {
 	}
 }
 
+
 let index = chrate(e.div,
 	chrate(e.h1, "bah"),
 	chrate(e.p, "here be text"),

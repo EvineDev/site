@@ -1,4 +1,4 @@
-let e = {}
+let e: any = {}
 
 function node(x) {
 	let result = typeof x === "object" ? x : document.createTextNode(x)
@@ -48,7 +48,7 @@ e.a = function(url, text) {
 	g.setAttribute("href", url)
 
 	let absUrl = new URL(g.href)
-	let windowUrl = new URL(window.location);
+	let windowUrl = new URL(window.location.toString());
 	if (absUrl.origin != windowUrl.origin) {
 		g.setAttribute("noreferrer", "")
 		g.setAttribute("noopener", "")
@@ -72,10 +72,10 @@ e.delayLoad = function(url) {
 }
 
 e.route = function(routes) {
-	let url = new URL(window.location)
+	let url = new URL(window.location.toString())
 	let path = url.pathname.substring(1)
 	let route = routes[path];
 	return route ? route : routes["error"]
 }
 
-export default e
+export default <any>e
