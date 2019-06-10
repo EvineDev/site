@@ -8,18 +8,17 @@
 		"incremental": false,
 		"sourceMap": true,
 		"forceConsistentCasingInFileNames": true,
-		//"noLib": true,
 
 		"alwaysStrict": true,
 		"keyofStringsOnly": true,
 		"noFallthroughCasesInSwitch": true,
-		//"noImplicitAny": true,
+		"noImplicitAny": true,
 		"noImplicitReturns": true,
 		"noImplicitThis": true,
 		"strictBindCallApply": true,
 		"strictFunctionTypes": true,
-		//"strictNullChecks": true,
-		//"strictPropertyInitialization": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
 	},
 	"include": [
 		"./*"

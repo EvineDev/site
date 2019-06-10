@@ -1,11 +1,13 @@
-export type ChrateFunction<T> =
-	((...args: T[]) => ChrateNode<T>) |
-	((args: T) => ChrateNode<T>) |
-	(() => ChrateNode<T>)
+export type ChrateFunction =
+	(() => HTMLElement)
 
-export type ChrateNodeArg<T> = (ChrateNode<any> | string)[]
+export type ChrateNode = {
+	code: ChrateFunction
+}
 
-export type ChrateNode<T> = {
-	code: ChrateFunction<T>,
-	nodes: ChrateNodeArg<T>
+export function chrate(f: ChrateFunction): ChrateNode {
+	let result: ChrateNode = {
+		code: f
+	}
+	return result
 }

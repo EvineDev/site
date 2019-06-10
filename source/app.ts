@@ -2,22 +2,11 @@
 
 import e from "./elements.js"
 import render from "./render.js"
-import { ChrateFunction, ChrateNodeArg, ChrateNode } from "./chrate.js"
 
 //let request = fetch("api/eple.txt")
 //let text = request.then(x => x.text())
 //text.then(x => console.log(x))
 
-//let index = e.div([
-//	e.h1("bah"),
-//	e.p("here be text"),
-//	e.a("/dog", "Dog"),
-//	e.br(),
-//	e.a("http://google.com", "google"),
-//	e.br(),
-//	e.delayLoad("/api/eple.txt")
-//])
-//
 //let dog = e.div([
 //	e.h1("Good boy"),
 //	e.p("a little dog barking"),
@@ -35,24 +24,18 @@ import { ChrateFunction, ChrateNodeArg, ChrateNode } from "./chrate.js"
 //	"error": error
 //})
 
-function chrate<T>(f: ChrateFunction<T>, ...nodes: ChrateNodeArg<T>) {
-	let result: ChrateNode<T> = {
-		code: f,
-		nodes: nodes
-	}
-	return result
-}
-
-let index = chrate(e.div,
-	chrate(e.h1, "bah"),
-	chrate(e.p, "here be text"),
-	chrate(e.a, "/dog", "Dog"),
-	chrate(e.br),
-	chrate(e.a, "http://google.com", "google"),
-	chrate(e.br),
-	chrate(e.delayLoad, "/api/eple.txt")
+let index = e.div(
+	e.h1("bah"),
+	e.p("here be text"),
+	e.a("/dog", "Dog"),
+	e.br(),
+	e.a("http://google.com", "google"),
+	e.br(),
+	e.delayLoad("/api/eple.txt")
 )
 
-// Stuff should be evaluated here
-//render(site)
+window.onpopstate = event => {
+	render(index)
+}
+
 render(index)

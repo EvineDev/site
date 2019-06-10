@@ -1,23 +1,20 @@
-function render(blobs) {
-	let node = renderNodes(blobs)
+import { ChrateFunction, ChrateNode } from "./chrate.js"
 
-	let root = document.getElementById("root")
-	root.appendChild(node)
+function render(blobs: ChrateNode): void {
+	let element = renderNodes(blobs)
+	let elementRoot = "root"
+	let root = document.getElementById(elementRoot)
+	if(root != null) {
+		root.innerHTML = ""
+		root.appendChild(element)
+	} else {
+		console.error(`Could not find element by id "${elementRoot}"`);
+	}
 }
 
-function renderNodes(blobs) {
-	let nodes = []
-	for(let blob of blobs.nodes) {
-		if (typeof blob == "object") {
-			let r = renderNodes(blob)
-			nodes.push(r)
-		} else {
-			nodes.push(blob)
-		}
-	}
-
-	let node = blobs.code(...nodes)
-	return node
+function renderNodes(blobs: ChrateNode): HTMLElement {
+	let element = blobs.code()
+	return element
 }
 
 export default render
